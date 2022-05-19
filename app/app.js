@@ -1,6 +1,6 @@
 require("dotenv").config();
 var mongoose = require('mongoose');
-const port = process.env.SERVER_PORT || 6000;
+const port = process.env.PORT || 6000;
 const mongouser = process.env.MONGO_ROOT_USER || "devroot";
 const mongopass = process.env.MONGO_ROOT_PASSWORD || "devroot";
 const mongodb = process.env.MONGO_DB || "noname_bbdd";

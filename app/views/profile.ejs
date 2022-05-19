@@ -5,8 +5,9 @@
             function testme(e) {
                 document.getElementById("pimatge").src = e.src;
                 var image = document.getElementById("pimatge").src;
-                var image1 = image.split("3000/");
-                document.getElementById("inpIm").value = image1[1];
+                const image1 = new URL(image).pathname;     
+                console.log(image1);      
+                document.getElementById("inpIm").value = image1;
             }
         </script>
         <% var  name = name , surname= surname, email = email, image = image, trophies = trophies, progress = progress, errorUpdate = errorUpdate%>

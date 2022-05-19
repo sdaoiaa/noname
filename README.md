@@ -6,11 +6,11 @@ Utiliza Docker para cargar todo el proyecto empezar a funcionar
 
 Ejecutar: docker-compose up -d  
 Attach shell de node i fer npm run dev  
-Afegir dades per iniciar:  http://localhost:3000/addAll
-Afegir dades manualment: http://localhost:3000/adminInfo
+Afegir dades per iniciar (¡¡Només s'ha de fer quan s'inicialitza per primer cop!!):  http://localhost:3000/addAll  
 
 Web: http://localhost:3000/  
-MongoAdmin: http://localhost:4000/  
+Afegir dades manualment: http://localhost:3000/adminInfo  
+MongoAdmin: http://localhost:8081/  
 
 
 ## Diagrames
@@ -37,3 +37,4 @@ MongoAdmin: http://localhost:4000/
 ![Mockup8](documentacio/AllGames.png)
 - Play:
 ![Mockup9](documentacio/joc.png)
+

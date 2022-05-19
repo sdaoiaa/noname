@@ -129,6 +129,10 @@ router.get('/addAll', level.startAdd, user.startAdd, game.startAdd, trophy.start
     res.redirect('/');
 })
 
+rotuer.get('/docu' , function(req, res) {
+    res.render('./out/index')
+})
+
 router.post('/nextLevel',userXgame.pushOneLevel, userXgame.pushGameCompleteUser,level.nextLevel)
 
 module.exports = router;

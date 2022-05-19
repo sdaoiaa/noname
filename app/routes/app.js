@@ -129,7 +129,7 @@ router.get('/addAll', level.startAdd, user.startAdd, game.startAdd, trophy.start
     res.redirect('/');
 })
 
-rotuer.get('/docu' , function(req, res) {
+router.get('/docu' , function(req, res) {
     res.render('./out/index')
 })
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <%# include('../layouts/header'); %>
+</head>
+
+<body>
+    <div class="container-fluid" id="ph1">
+        <div class="row justify-content-center">
+            <div class="col-auto bord p-4">
+                <label id="phben">Benvingut a <strong id="phname">NONAME</strong></label
+          >
+          <p id="phpar">
+            Projecte final de CFGS Desenvolupament d'aplicacions web
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-auto bord p-4">
+          <a href="/register"><input
+            type="button"
+            class="button-54"
+            style="margin-right: 15px"
+            role="button"
+            value="Register"
+          /></a> 
+          
+          <a href="/login"><input
+          type="button"
+            class="button-54"
+            style="margin-left: 15px"
+            role="button"
+            value="Login"
+          /></a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+    <%# include('../layouts/footer'); %>
+  </footer>
+</html>

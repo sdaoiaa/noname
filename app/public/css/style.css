@@ -1,0 +1,330 @@
+/*FONT PRE HOME*/
+
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200&display=swap");
+
+/*FONT HOME*/
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+
+/* ============== PRE-HOME =================*/
+
+#ph1 {
+    padding-top: 15%;
+    font-family: "Gothic A1", sans-serif;
+}
+
+#phname {
+    font-size: 100px;
+}
+
+#phben {
+    font-size: 32px;
+}
+
+#phpar {
+    text-align: center;
+    font-size: 16px;
+}
+
+.button-54 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: white;
+}
+
+.button-54:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+}
+
+@media (min-width: 768px) {
+    .button-54 {
+        padding: 0.25em 0.75em;
+    }
+}
+
+
+/* ============== FINAL PRE-HOME ===============*/
+
+
+/* =================== HOME ====================*/
+
+.hp1 {
+    text-align: justify;
+    padding-top: 120px;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#hrow1 {
+    margin-top: 200px;
+}
+
+.hp2 {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#hh1 {
+    font-size: 72px;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+}
+
+#hcol3 {
+    text-align: center;
+}
+
+#hrow3 {
+    margin-top: 200px;
+}
+
+#hrow2 {
+    margin-right: 0 !important;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+@media (max-width: 990px) {
+    #himg1 {
+        margin-top: 150px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #hrow1 {
+        margin-top: 0px !important;
+    }
+}
+
+
+/* ==============FINALHOME ====================*/
+
+
+/* ==============PROFILE ====================*/
+
+#pcontainer1 {
+    width: 40%;
+    float: left;
+    height: 100%;
+    padding-top: 5%;
+    background-color: #f3ccff;
+    margin-top: -10px;
+}
+
+#pcontainer2 {
+    width: 60%;
+    float: left;
+    height: 100%;
+    padding-top: 5%;
+}
+
+#pbtn {
+    margin-top: 5%;
+    margin-left: 34%;
+}
+
+@media (max-width: 990px) {
+    #pbtn {
+        margin-left: 10%;
+    }
+}
+
+
+/* GAMES */
+
+hr.solid {
+    margin-top: -1px;
+    border-top: 2px solid rgb(156, 156, 156);
+    width: 15cm;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.circle.incomplet {
+    border: 1px solid rgb(172, 172, 172);
+    background-color: rgb(206, 204, 204);
+    color: rgb(172, 172, 172);
+}
+
+.circle.complet {
+    border: 1px solid #7B2CBF;
+    background-color: #E0AAFF;
+    color: #7B2CBF;
+}
+
+hr {
+    border-top: 4px solid rgb(156, 156, 156);
+}
+
+p.teoria {
+    background-color: #000;
+}
+
+
+/* GAME */
+
+.bigCircle {
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    font-size: 70px;
+    padding-left: 45px;
+}
+
+.bigCircle.incomplet {
+    border: 1px solid rgb(172, 172, 172);
+    background-color: rgb(206, 204, 204);
+    color: rgb(172, 172, 172);
+}
+
+.bigCircle.complet {
+    border: 1px solid #7B2CBF;
+    background-color: #E0AAFF;
+    color: #7B2CBF;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* PANTALLA MITJA */
+@media (max-width: 1380px) {
+    #llistaImatges {
+        position: fixed;
+        top: 120px;
+        left: 0;
+        display: inline-flex;
+        flex-direction: row
+    }
+
+    .list-group-item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* PANTALLA PETITA */
+@media(max-width: 600px) {
+    #animation {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+input[type=text],input[type=email],input[type=password] {
+    border: none;
+    border-bottom: 2px solid #7B2CBF;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+/* test */
+.fundo{
+    animation: scales 3s alternate  infinite;
+    transform-origin: center;
+  }
+  .pao-baixo{
+     animation: rotatepao 14s cubic-bezier(.1,.49,.41,.97)  infinite;
+    transform-origin: center;
+  }
+  .pao-cima{
+     animation: rotatepao 7s 1s cubic-bezier(.1,.49,.41,.97)  infinite;
+    transform-origin: center;
+  }
+  .olhos{animation: olhos   2s  alternate  infinite;
+     transform-origin: center;
+  }
+  
+  .left-sparks{animation: left-sparks   4s  alternate  infinite;
+        transform-origin: 150px 156px;
+  }
+  
+  .right-sparks{animation: left-sparks   4s  alternate  infinite;
+        transform-origin: 310px 150px;
+  }
+  
+  .olhos{animation: olhos   2s  alternate  infinite;
+     transform-origin: center;
+  }
+  @keyframes scales{
+    from { transform: scale(0.98)}
+    to{ transform: scale(1)}
+  }
+  
+  @keyframes rotatepao{
+    0% { transform:  rotate(0deg)}
+    50% , 60%{ transform:  rotate(-20deg)}
+    100%{  transform:  rotate(0deg) }
+   
+  }
+  
+  @keyframes olhos{
+    0%{
+      transform: rotateX(0deg);
+    }
+     100%{
+      transform: rotateX(30deg);
+    }
+  }
+  
+  @keyframes left-sparks{
+    0%{
+      opacity: 0; 
+    }
+    
+  }
+  
+  
+  .main{
+    
+    min-height: 600px;
+    margin: 0px auto;
+    width: auto;
+    max-width: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: dash 4s   alternate infinite;
+  }
+  
+  @keyframes dash{
+     0%, 30%{
+       fill: 4B4B62;
+      stroke-dashoffset:   0;
+    }
+     80%,100%{
+       fill: transparent;
+      stroke-dashoffset:  -200;
+    }
+     
+    
+  }

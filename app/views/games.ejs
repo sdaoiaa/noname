@@ -1,0 +1,73 @@
+<% var name=name, image=image, games=games, progress=progress, count = 0, lastLevel = lastLevel;%>
+    <%- include('./layouts/header',{name: name, image: image, games: games}); %>
+        <div class="container pt-5">
+            <!-- JOCS -->
+            
+            <% for (var i=0; i < games.length; i++) {%>
+                <h3 class="text-muted">
+                    <%= games[i].name.toUpperCase() %>
+                </h3>
+                <hr class="solid">
+                <% if(progress[i].nom.toUpperCase()==games[i].name.toUpperCase()){%>
+                    <% for (var j=0; j < progress[i].total; j++) {%>
+                        <% if (lastLevel.gameName == progress[i].nom && count == 0) { %>
+                            <% if (lastLevel.isLast) {%>
+                                <% count ++; %>
+                                <div class="alert alert-success" role="alert">
+                                    <p>Has acabat el Joc de <%= lastLevel.gameName %> </p>
+                                </div>
+                            <% } %>     
+                        <% } %>    
+                        <%  let cond = j <=progress[i].completed;
+                            if (i != 0) {
+                                if(progress[i-1].completed == progress[i-1].total){
+                                    cond = j <= progress[i].completed;
+                                }else{
+                                    cond = j + 1 <=progress[i].completed;
+                                }
+                            }
+                        %> 
+                        <% if(cond || (i == 0 && j == 0)){%>
+                            <form action="/play/<%=games[i]._id%>/<%=games[i].levels[j]._id%>" method="get">
+                                <input type="submit" class="rounded-circle circle m-1 fs-2 pt-1 complet" value="<%= j + 1 %>" style="padding-left: 10px;float: left;">
+                            </form>
+                        <% } else {%>
+                            <div class="rounded-circle circle m-1 fs-2 pt-1 incomplet">
+                                <%= j +1 %>
+                            </div>
+                        <% } %>
+                    <% } %>
+                    <br>
+                <%}%>
+                <br><br>
+            <% } %>
+            <br><br>
+
+            <!-- TEORIA -->
+            <hr>
+            <h2 class="text-center"> TEORIA</h2>
+            <% for (var i=0; i < games.length; i++) { 
+                var actiu=false;
+                if(progress[i].completed> 0){
+                    actiu = true;
+                }
+                if(actiu){ %>
+                    <br>
+                    <h3>
+                        <%= games[i].name.toUpperCase() %>
+                    </h3>
+                <% } 
+                if(progress[i].nom.toUpperCase()==games[i].name.toUpperCase()){
+                    for (var j=0; j < progress[i].total; j++) { 
+                        if(j + 1 <=progress[i].completed){ %>
+                            <h4> &emsp; LEVEL
+                                <%= j + 1%>
+                            </h4>
+                            <%- games[i].levels[j].theory %>
+                        <% } 
+                    } 
+                } 
+            } %>
+            <br>
+        </div>
+<%- include('./layouts/footer'); %>

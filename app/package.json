@@ -1,0 +1,26 @@
+{
+    "name": "noname",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./app.js",
+        "dev": "nodemon ./app.js",
+        "docs": "jsdoc -c ./.jsdoc.json -R README.md -t ./node_modules/ink-docstrap/template ./controllers --debug"
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "debug": "~2.6.9",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.7",
+        "express": "~4.16.1",
+        "express-session": "^1.17.2",
+        "http-errors": "~1.6.3",
+        "ink-docstrap": "1.3.2",
+        "jsdoc": "3.6.10",
+        "mognoose": "^1.0.3",
+        "mongoose": "^6.3.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
+}

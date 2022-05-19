@@ -1,0 +1,79 @@
+<% var name = name, image = image, games = games;%> 
+<%- include('./layouts/header',{name: name, image: image, games: games}); %>
+        </header>
+        <script>
+            function testme(e) {
+                document.getElementById("pimatge").src = e.src;
+                var image = document.getElementById("pimatge").src;
+                var image1 = image.split("3000/");
+                document.getElementById("inpIm").value = image1[1];
+            }
+        </script>
+        <% var  name = name , surname= surname, email = email, image = image, trophies = trophies, progress = progress, errorUpdate = errorUpdate%>
+
+            <% var images=["images/profile1.png","images/profile2.png", "images/profile3.png" , "images/profile4.png" , "images/profile5.png","images/profile6.png"]; %>
+                <div class="container" id="pcontainer1">
+                    <div class="row mb-5 pt-5">
+                        <form id="pform">
+                            <div class="col d-flex justify-content-center" style="padding-left: 10%;">
+
+                                <img id="pimatge" name="foto" src="<%=image%>" alt="pimg1 " class="rounded-circle " style="width: 300px; height: 300px; ">
+                                <%#EDITAR FOTO PERFIL%>
+                                    <div class="list-group rounded shadow ms-5 " id="llistaImatges">
+                                        <% for (var j = 0; j < images.length; j++) { %>
+
+                                            <a class="list-group-item list-group-item-action bg-transparent border-0 " id="img<%=[j]%>">
+                            <img onclick="testme(this)" id="pimg<%=[j]%>" src="<%=images[j]%>" alt="pimg<%=[j]%>" class="rounded-circle" style="width: 50px; height: 50px;">
+                            </a>
+                                            <%}%>
+                                    </div>
+                            </div>
+                    </form>
+                </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <form id="pform" action="/profile" method="POST" style="width: 75%;">
+                                <input class="form-control" type="text" id="name" name="name" value="<%= name %>" required><br>
+                                <input class="form-control" type="text" id="surname" name="surname" value="<%= surname %>" required><br>
+                                <input class="form-control" type="text" id="email" name="email" value="<%= email %>" required><br>
+                                <input class="form-control" type="text" id="inpIm" name="image" value="<%= image %>" hidden>
+                                <button type="submit" class="button-54" id="pbtn">Editar Perfil</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="container ps-5 pe-5" id="pcontainer2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="border border-secondary shadow p-3 mb-5 bg-white rounded">
+                                <p class="px-4 pt-4 h2 " style="font-family: 'Gothic A1', sans-serif; ">PROGRES</p>
+                                <% for (let i = 0; i < progress.length; i++) { %>
+                                    <div class="pt-3">
+                                        <span class="h4" style="font-family: 'Gothic A1', sans-serif; text-transform: uppercase;"> <%=progress[i].nom%> </span>
+                                    </div>
+                                    <div class=" progress">
+                                        <% let divisio = (progress[i].completed * 100) / progress[i].total  %>
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%=divisio %>%"></div>
+                                    </div>
+                                    <%}%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col ">
+                            <div class="border border-secondary shadow p-3 mb-5 bg-white rounded ">
+                                <p class="p-4 h2 " style="font-family: 'Gothic A1', sans-serif;">TROFEUS</p>
+                                <div class=" p-2 ">
+                                    <% for (let i = 0; i < trophies.length; i++) { %>
+                                        <img class="p-2 float-left " width="100px " src="<%=trophies[i].image%>" alt="<%=trophies[i].name%>">
+                                        <%}%>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="js/chat.js" type='text/javascript'></script>
+
+                <%- include('./layouts/footer'); %>

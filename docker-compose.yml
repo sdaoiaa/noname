@@ -1,0 +1,60 @@
+version: '3'
+services:
+  #NODE Service
+  app:
+    image: node:${NODE_V}-${NODE_TAG}
+    container_name: app_${DOCKER_NAME}
+    restart: unless-stopped
+    entrypoint: sh /scripts/init.sh
+    tty: true
+    working_dir: /app
+    volumes:
+      - ${PROJECT_PATH}:/app
+      - ./init.sh:/scripts/init.sh
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    networks:
+      - app-network
+  
+  mongo:
+    image: mongo:4
+    container_name: mongo_${DOCKER_NAME}
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB}
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    volumes:
+      - ./docker/mongo/initdb.d/:/docker-entrypoint-initdb.d/
+      - dbdata:/data/db
+      #- ./data:/data/db
+    networks:
+      - app-network
+      
+  mongoclient:
+    image: mongo-express:latest
+    container_name: mongoclient_${DOCKER_NAME}
+    restart: unless-stopped
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_ROOT_USER}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_ROOT_PASSWORD}
+      - ME_CONFIG_MONGODB_PORT=${MONGO_PORT}
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+    depends_on:
+      - mongo
+    ports:
+      - ${MONGOCLIENT_PORT}:8081
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata:
+    driver: local

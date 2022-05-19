@@ -1,0 +1,44 @@
+<% var name = name, image = image, games = games;%> 
+<%- include('./layouts/header',{name: name, image: image, games: games}); %>
+    <!-- FIRST CONTAINER -->
+    <div class="container mt-5">
+        <div class="row" id="hrow1">
+            <div class="col-md-6 col-12">
+                <p class="hp1">La nostra idea tracta d'un joc d'aprenentatge que d'una manera divertida i visual t'ajuda a poder aprendre les bases d'un llenguatge de programació. El joc es compondrá d'un seguit de nivells amb un afegit de dificultat, on els nivells
+                    es complementaran amb els aprenentatges previs. Per poder completar-los, l'usuari haurà d'implementar els trossos de codi que falten per poder finalitzar la tasca que li toqui al moment. L'usuari haurà de tenir una sessió on s'anirà
+                </p>
+            </div>
+            <div class="col-md-4 offset-2 col-8 col-mx-8">
+                <img src="images/img1.png" id="himg1" class="img-fluid" alt="img1">
+            </div>
+        </div>
+    </div>
+
+    <!-- TITOL -->
+    <div class="container-fluid" style="height: 20%;">
+        <div id="hrow3" class="row bg-dark pt-4 pb-4">
+            <div id="hcol3" class="col-12">
+                <p id="hh1">JOCS</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="container-fluid">
+        <div class="row mt-5 mb-5 justify-content-evenly mr-0" id="hrow2">
+            <!-- LOOP -->
+            <% for(var i = 0; i < games.length; i++) {%>
+                <div class="col-10 col-md-4 col-lg-2 ">
+                    <div class="card">
+                        <img src=<%= games[i].image%> class="card-img-top " alt="..." height="160px">
+                        <div class="card-body shadow">
+                            <p class="card-title" style="font-weight: 700;"><%= games[i].name %></p>
+                            <p id="hp2" class="card-text"><%= games[i].description%></p>
+                            <a href="/game/<%=games[i]._id%>" ><button class="button-54">Play</button></a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+<%- include('./layouts/footer'); %>

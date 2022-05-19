@@ -1,0 +1,74 @@
+<% var name=name; var last=last; var image=image; var actLevel=level; var isError=error; var
+    correctAnswer=correctAnswer; var actGame=game, buttonNext=buttonNext, games = games, gif = gif; %>
+    <%- include('./layouts/header',{ name: name,last:last, image: image, games: games }); %>
+    <script>
+        function getFocus() {
+            document.getElementById("ancla").focus({
+                preventScroll: true
+            });
+        }
+    </script>
+
+        <div class="container pt-5 pb-5">
+            <h1 class="text-center pb-5" style="color:#D170DE;font-weight: 700;font-family: 'Gothic A1', sans-serif;">
+                <%= actGame.name %>
+            </h1>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 col-md-12">
+                    <% if (correctAnswer || buttonNext == true) { %>
+                        <div class="d-flex mb-5">
+                            <form action="/nextLevel" method="post">
+                                <button type="submit" class="button-54 ps-5 pe-5">Next</button>
+                            </form>
+                        </div>
+                    <% } %>
+                    <% if(isError) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <p>No es correcte... prova un altre cop, recorda de llegir la teoria</p>
+                        </div>
+                    <% } if (correctAnswer) { %>
+                        <div class="alert alert-success" role="alert">
+                            <p>Molt bé OwO. <strong>Apreta NEXT per passar al següent nivell</strong></p>
+                        </div>
+                    <% } %>
+
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="pb-3 "  style="font-size: 35px; font-family: 'Gothic A1', sans-serif;">
+                                <%= "Nivell " + actLevel.nLevel %>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="text-align:justify; margin-right: 20px">
+                            <p>
+                                <%- level.theory %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col rounded shadow py-4 px-4 bg-light border border-secondary">
+                            <div id="textExample">
+                                <form class="px-2 py-2" action="" method="post">
+                                    <%- level.gameInf %>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="button-54 mt-2 mb-2">Comprovar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 col-md-12 offset"></div>
+                <div class="col-lg-4 col-sm-12 col-md-12 justify-content-center ">   
+                    <p class="text-center pt-5 pb-5" style="font-size: 30px; font-family: 'Gothic A1', sans-serif;">ANIMATION</p>
+                    <div class="d-flex justify-content-center"id="animation" style="position: sticky; top: 15%;">
+                        <% let src = "/images/quiet1.gif";
+                            if(gif){src = gif} 
+                            const myTimeout = setTimeout(function(){}, 1500);%>
+                        <img id="animation"class=" rounded shadow bg-light" src=<%=src%> alt="">                    
+                    </div>
+                </div>         
+            </div>
+        </div>
+<%- include('./layouts/footer'); %>

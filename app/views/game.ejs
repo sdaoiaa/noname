@@ -1,0 +1,51 @@
+<% var name = name, image = image, games = games, game = game;%>
+<%- include('./layouts/header',{name: name, image: image, games: games}); %>
+    <div class="container pt-5">
+        <!-- NIVELLS -->
+        <h3 class="text-muted">
+            <%= game.name.toUpperCase(); %>
+        </h3>
+        <hr class="solid">
+        <% for (var i = 0; i < progress.length; i++) { %>
+            <% if(progress[i].nom.toUpperCase() == game.name.toUpperCase()){%>
+                <% for (var j = 0; j < progress[i].total; j++) {%>
+                    <% let cond = j <=progress[i].completed;
+                        if (i != 0) {
+                            if(progress[i-1].completed == progress[i-1].total){
+                                cond = j <= progress[i].completed;
+                            }else{
+                                cond = j + 1 <=progress[i].completed;
+                            }
+                        }
+                    %> 
+                    <% if(cond|| (i == 0 && j == 0)){%>
+                        <form action="/play/<%=games[i]._id%>/<%=games[i].levels[j]._id%>" method="get" >
+                            <input type="submit" class="rounded-circle bigCircle m-1 pt-2 complet" value="<%= j + 1%>" style="padding-left: 10px;float: left;">
+                        </form>
+                    <% } else {%>
+                        <div class="rounded-circle bigCircle m-1 pt-2 incomplet mb-5">
+                            <%= j + 1%>
+                        </div>
+                    <% } %>
+                <% } %>
+            <%}%>
+        <% } %>
+        <br><br><br><br><br><br><br>
+
+        <!-- TEORIA -->
+        <hr>
+        <h2 class="text-center"> TEORIA</h2>
+        <% for (var i = 0; i < progress.length; i++) { %>
+            <% if(progress[i].nom.toUpperCase() == game.name.toUpperCase()){%>
+                <% for (var j = 0; j < progress[i].total; j++) {%>
+                    <% if(j + 1 <= progress[i].completed){ %> 
+                        <h4> &emsp; LEVEL <%= j + 1 %> </h4>
+                        <%- game.levels[j].theory %>
+                    <% }%>
+                <% } %>
+                <br>
+            <% } %>
+            <br> 
+        <% } %>   
+    </div>                                         
+<%- include('./layouts/footer'); %>

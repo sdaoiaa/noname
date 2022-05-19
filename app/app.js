@@ -38,7 +38,8 @@ server.listen(port, (err, res) => {
 
 //Mongoose connection
 mongoose.connect(
-    `mongodb://devroot:devroot@mongo:27017/noname_bbdd?authSource=admin`,
+    //`mongodb://devroot:devroot@mongo:27017/noname_bbdd?authSource=admin`,
+    process.env.MONGO_URL,
     { useNewUrlParser: true },
     (err, res) => {
         if (err) console.log(`ERROR: connecting to Database.  ${err}`);
